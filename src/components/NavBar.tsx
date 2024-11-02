@@ -45,7 +45,7 @@ const NavBar = () => {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default NavBar;

@@ -17,7 +17,7 @@ type menuLink = {
   id: number;
   title: string;
   url: string;
-}
+};
 
 const Menu = () => {
   const [ open, setOpen ] = useState<boolean>(false);
@@ -67,7 +67,7 @@ const Menu = () => {
         )
       }
     </div>
-  )
+  );
 }
 
 export default Menu;

@@ -7,7 +7,7 @@ const Footer = () => {
       <Link href='/' className='font-bold text-lg uppercase'>Little Pompeius</Link>
       <span className='font-mono'>© ALL RIGHTS RESERVED.</span>
     </div>
-  )
+  );
 }
 
 export default Footer;

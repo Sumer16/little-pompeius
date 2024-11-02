@@ -9,7 +9,7 @@ const CartIcon = () => {
       </div>
       <span>Cart (3)</span>
     </div>
-  )
+  );
 }
 
 export default CartIcon;
