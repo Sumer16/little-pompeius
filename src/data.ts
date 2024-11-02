@@ -361,7 +361,7 @@ type Menu = {
   color: string;
 }[];
 
-export const menu: Menu = [
+export const menuCategory: Menu = [
   {
     id: 1,
     slug: "pastas",
@@ -374,7 +374,7 @@ export const menu: Menu = [
     id: 2,
     slug: "burgers",
     title: "Juicy Burgers",
-    desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
+    desc: "Burger Bliss: Juicy patties, cheesy layering, bold flavors, and gourmet toppings galore.",
     img: "/temporary/m2.png",
     color: "black",
   },
