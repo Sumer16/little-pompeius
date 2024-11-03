@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 const CountDown = () => {
   let difference = +new Date(`11/10/2024`) - +new Date();
-  const [ delay, setDelay ] = useState(difference);
+  const [ delay, setDelay ] = useState<number>(difference);
 
   const d = Math.floor(difference / (1000 * 60 * 60 * 24));
   const h = Math.floor((difference / (1000 * 60 * 60)) % 24);
