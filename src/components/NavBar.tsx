@@ -10,9 +10,9 @@ const NavBar = () => {
     <div className='h-12 text-red-500 p-4 flex flex-row items-center justify-between border-b-2 border-b-red-500 uppercase md:h-24 lg:px-16 xl:px-40'>
       {/* Left Links */}
       <div className='hidden md:flex gap-4 flex-1'>
-        <Link href='/' className='font-medium'>Home</Link>
-        <Link href='/menu' className='font-medium'>Menu</Link>
-        <Link href='/contact' className='font-medium'>Contact</Link>
+        <Link href='/' className='font-medium hover:text-red-700'>Home</Link>
+        <Link href='/menu' className='font-medium hover:text-red-700'>Menu</Link>
+        <Link href='/contact' className='font-medium hover:text-red-700'>Contact</Link>
       </div>
 
       {/* Logo */}
@@ -29,18 +29,18 @@ const NavBar = () => {
       <div className='hidden md:flex gap-4 items-center justify-end flex-1'>
         <div className='md:absolute top-3 r-2 lg:static flex items-center gap-2 cursor-pointer bg-orange-300 px-3 rounded-3xl'>
           <Image src='/phone.png' alt='Phone Number' width={20} height={20} />
-          <span className='font-medium'>555 (8172)</span>
+          <span className='font-medium hover:text-red-700'>555 (8172)</span>
         </div>
 
         {
           true ? (
-            <Link href='/login' className='font-medium'>Login</Link>
+            <Link href='/login' className='font-medium hover:text-red-700'>Login</Link>
           ) : (
-            <Link href='/orders' className='font-medium'>Orders</Link>
+            <Link href='/orders' className='font-medium hover:text-red-700'>Orders</Link>
           )
         }
 
-        <Link href='/cart'>
+        <Link href='/cart' className='font-semibold hover:text-red-700'>
           <CartIcon />
         </Link>
       </div>
