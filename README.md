@@ -1,8 +1,28 @@
+# [Little Pompeius](https://little-pompeius.vercel.app)
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Installation
 
-First, run the development server:
+### Clone the repository
+To get started, you'll need to clone this repository to your local machine. You can do this by running the following in the command line:
+
+```bash 
+git clone https://github.com/Sumer16/little-pompeius.git 
+```
+
+### Install dependencies
+
+Once you've cloned the repository, navigate to the project directory and run npm/yarn install to install all the necessary dependencies.
+
+```bash
+cd little-pompeius
+
+npm install
+# or
+yarn install
+```
+
+then, run the development server:
 
 ```bash
 npm run dev
