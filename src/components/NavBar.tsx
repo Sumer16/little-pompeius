@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import Menu from './Menu';
 import CartIcon from './CartIcon';
+import UserLinks from './UserLinks';
 
 const NavBar = () => {
   return (
@@ -32,13 +33,7 @@ const NavBar = () => {
           <span className='font-medium hover:text-red-700'>555 (8172)</span>
         </div>
 
-        {
-          true ? (
-            <Link href='/login' className='font-medium hover:text-red-700'>Login</Link>
-          ) : (
-            <Link href='/orders' className='font-medium hover:text-red-700'>Orders</Link>
-          )
-        }
+        <UserLinks />
 
         <Link href='/cart' className='font-semibold hover:text-red-700'>
           <CartIcon />

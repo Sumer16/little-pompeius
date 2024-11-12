@@ -5,6 +5,7 @@ import './globals.css';
 import Notification from '@/components/Notification';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import AuthProvider from '@/components/AuthProvider';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -32,10 +33,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        <Notification />
-        <NavBar />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <div>
+            <Notification />
+            <NavBar />
+            {children}
+            <Footer />
+          </div> 
+        </AuthProvider>
       </body>
     </html>
   );
