@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ProductType } from '@/types/types';
 
 type CategoryProps = {
-  params: { category: string }
+  params: { category: string };
 };
 
 const getData = async (category: string) => {
