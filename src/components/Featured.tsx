@@ -1,9 +1,23 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { featuredProducts } from '@/data';
+import { ProductType } from '@/types/types';
 
-const Featured = () => {
+const getData = async () => {
+  const result = await fetch('http://localhost:3000/api/products', {
+    cache: 'no-store'
+  });
+
+  if (!result.ok) {
+    throw new Error('Failed!');
+  }
+
+  return result.json();
+};
+
+const Featured = async () => {
+  const featuredProducts: ProductType[] = await getData();
+
   return (
     <div className='w-screen overflow-x-scroll text-red-500'>
       {/* Wrapper */}
