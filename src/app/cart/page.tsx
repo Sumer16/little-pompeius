@@ -1,12 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import { useCartStore } from '@/utils/store';
 
 const CartPage = () => {
   const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
+
+  useEffect(() => {
+    useCartStore.persist.rehydrate();
+  }, []);
 
   return (
     <div className='h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col text-red-500 lg:flex-row'>
@@ -15,14 +19,14 @@ const CartPage = () => {
         {/* SINGLE ITEM */}
         {
           products.map((item) => (
-            <div className='flex items-center justify-between mb-2' key={item.id}>
+            <div className='flex items-center justify-between mb-1' key={item.id}>
               {
                 item.img && (
                   <Image src={item.img} alt={item.title} width={100} height={100} />
                 )
               }
-              <div className=''>
-                <h1 className='uppercase text-xl font-bold'>{item.title} x{item.quantity}</h1>
+              <div className='flex flex-col w-60'>
+                <h1 className='uppercase text-xl font-bold text-ellipsis'>{item.title} x{item.quantity}</h1>
                 <span className='font-medium'>{item.optionTitle}</span>
               </div>
               <h2 className='font-bold'>${item.price.toFixed(2)}</h2>

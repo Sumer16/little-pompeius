@@ -1,12 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import { useCartStore } from '@/utils/store';
 
 const CartIcon = () => {
   const { totalItems } = useCartStore();
+
+  useEffect(() => {
+    useCartStore.persist.rehydrate();
+  }, []);
+
   return (
     <div className='flex items-center gap-4 md:gap-2'>
       <div className='relative w-8 h-8 md:w-5 md:h-5'>
