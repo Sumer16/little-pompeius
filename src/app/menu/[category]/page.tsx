@@ -21,7 +21,8 @@ const getData = async (category: string) => {
 };
 
 const CategoryPage = async ({ params }: CategoryProps) => {
-  const products: ProductType[] = await getData(params.category)
+  const { category } = await params; // https://nextjs.org/docs/messages/sync-dynamic-apis
+  const products: ProductType[] = await getData(category);
 
   return (
     <div className='flex flex-wrap text-red-500'>
