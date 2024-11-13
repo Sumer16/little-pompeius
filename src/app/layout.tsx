@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Notification from '@/components/Notification';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -41,6 +44,7 @@ export default function RootLayout({
               <NavBar />
               {children}
               <Footer />
+              <ToastContainer position='bottom-right' theme='dark' autoClose={3000} />
             </div>
           </QueryProvider>
         </AuthProvider>
