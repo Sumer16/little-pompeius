@@ -1,31 +1,28 @@
 'use client';
 
+import { ProductType } from '@/types/types'
 import React, { useEffect, useState } from 'react';
 
-type PriceProps = {
-  price: number;
-  id: number;
-  options?: { title: string; additionalPrice: number }[];
-};
-
-const Price = ({ price, id, options }: PriceProps) => {
-  const [ total, setTotal ] = useState<number>(price);
+const Price = ({ product }: { product: ProductType}) => {
+  const [ total, setTotal ] = useState<number>(Number(product.price));
   const [ quantity, setQuantity ] = useState<number>(1);
   const [ selected, setSelected ] = useState<number>(0);
 
   useEffect(() => {
-    setTotal(
-      quantity * (options ? price + options[selected].additionalPrice : price)
-    );
-  }, [quantity, selected, options, price]);
+    if (product.options?.length) {
+      setTotal(
+        quantity * product.price + product.options[selected].additionalPrice
+      );
+    }
+  }, [quantity, selected, product]);
 
   return (
-    <div key={id} className='flex flex-col gap-4'>
+    <div key={product.id} className='flex flex-col gap-4'>
       <h2 className='text-2xl font-bold'>${total.toFixed(2)}</h2>
       {/* OPTIONS CONTAINER */}
       <div className='flex gap-4'>
         {
-          options?.map((option, index) => (
+          product.options?.length && product.options?.map((option, index) => (
             <button
               key={option.title}
               className='min-w-[6rem] p-2 ring-1 ring-red-400 rounded-md font-medium'
