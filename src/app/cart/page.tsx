@@ -15,7 +15,7 @@ const CartPage = () => {
   return (
     <div className='h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col text-red-500 lg:flex-row'>
       {/* PRODUCTS CONTAINER */}
-      <div className='h-2/3 p-4 flex flex-col overflow-y-scroll justify-center gap-4 lg:h-full lg:w-2/3 2xl:w-1/2 lg:px-16 xl:px-40'>
+      <div className='h-2/3 p-4 flex flex-col justify-center gap-4 lg:h-full lg:w-2/3 2xl:w-1/2 lg:px-16 xl:px-40'>
         {/* SINGLE ITEM */}
         {
           products.map((item) => (
