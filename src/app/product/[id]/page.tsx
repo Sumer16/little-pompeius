@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Price from '@/components/Price';
 
 import { ProductType } from '@/types/types';
+import DeleteButton from '@/components/DeleteButton'
 
 const getData = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/products/${id}`, {
@@ -42,6 +43,8 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
         <p className='font-medium'>{singleProduct.desc}</p>
         <Price product={singleProduct} />
       </div>
+
+      <DeleteButton id={singleProduct.id} />
     </div>
   );
 }
