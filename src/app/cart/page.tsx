@@ -2,15 +2,42 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 import { useCartStore } from '@/utils/store';
 
 const CartPage = () => {
   const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
+  const { data: session } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
+
+  const handleCheckout = async () => {
+    if (!session) {
+      router.push('/login');
+    } else {
+      try {
+        const res = await fetch('http://localhost:3000/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            price: totalPrice.toFixed(2),
+            products,
+            status: 'Not Paid!',
+            userEmail: session.user.email,
+          }),
+        });
+        const data =await res.json();
+        router.push(`/pay/${data.id}`);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
 
   return (
     <div className='h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col text-red-500 lg:flex-row'>
@@ -59,7 +86,7 @@ const CartPage = () => {
           <span className=''>TOTAL (INCL. VAT)</span>
           <span className='font-bold'>${totalPrice.toFixed(2)}</span>
         </div>
-        <button className='bg-red-500 text-white p-3 rounded-md w-1/2 self-end hover:bg-red-600'>
+        <button className='bg-red-500 text-white p-3 rounded-md w-1/2 self-end hover:bg-red-600' onClick={handleCheckout}>
           CHECKOUT
         </button>
       </div>
