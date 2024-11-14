@@ -1,5 +1,26 @@
-# [Little Pompeius](https://little-pompeius.vercel.app)
+# Little Pompeius
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+![Little Pompeius Landing Page](/little-pompeius.png)
+
+NOTE: This project has been fully developed but not deployed due to limited database instances on Supabase.
+
+## About Little Pompeius
+
+This is a fully-functional restaurant food delivery web application that mimics the functionalites of a real restaurant website. This application allows users to sign in/out, view products, purchase them using secured payment gateway, order tracking, and, order history. Along with these features admins can also edit/delete categories or products, assign each product to a specific category, upload images for each individual product they plan to present to their customers on the website, update delivery status of the food item and many more.
+This platform is built using Next.js 15, React, TailwindCSS, PostgreSQL, Supabase, Prisma, NextAuth, Stripe, and more.
+
+## Key Features
+
+- **Stunning UI:** Beautifully designed using TailwindCSS
+- **Responsiveness:** Works flawlessly on both desktop and mobile devices
+- **Payment Gateway:** Secure Payments using Stripe
+- **Editing & Deleting products:** Edit and delete products/category as an admin
+- **Product Management:** CRUD operations on various products as an admin
+- **Authentication:** Secured the app using NextAuth & Google
+- **Database & ORM:** PostgreSQL for robustness & Prisma for database operations
+- **PostgreSQL Database:** Utilize Supabase for your PostgreSQL database
+- **File Attachments:** Upload images for products as an admin using Cloudinary
 
 ## Installation
 
@@ -40,17 +61,38 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+### Setup the environment variables
 
-To learn more about Next.js, take a look at the following resources:
+Before starting the developement server make sure you set the env variables properly, create a ```.env``` file in the root of the project and add all necessary API credentials of your own:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+DATABASE_URL=your_db_url
+DIRECT_URL=your_migration_direct_url
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+NEXTAUTH_SECRET="Little Pompeius is better than Little Caesars"
+
+GOOGLE_ID=
+GOOGLE_SECRET=
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+```
+
+### Setup Prisma
+
+You can use any database of your own choice:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Credits
+
+- [Lama Dev](https://www.youtube.com/@LamaDev) => Thanks for making this amazing tutorial!
