@@ -8,7 +8,7 @@ import { useCartStore } from '@/utils/store';
 import { ProductType } from '@/types/types';
 
 const Price = ({ product }: { product: ProductType}) => {
-  const [ total, setTotal ] = useState<number>(product.price);
+  const [ total, setTotal ] = useState(product.price);
   const [ quantity, setQuantity ] = useState<number>(1);
   const [ selected, setSelected ] = useState<number>(0);
 
@@ -31,7 +31,7 @@ const Price = ({ product }: { product: ProductType}) => {
       id: product.id,
       title: product.title,
       img: product.img,
-      price: +(total.toFixed(2)),
+      price: total,
       ...(product.options?.length && {
         optionTitle: product.options[selected].title,
       }),

@@ -73,7 +73,7 @@ const OrdersPage = () => {
               <tr className={`text-sm md:text-base ${item.status !== 'delivered' && 'bg-rose-50'}`} key={item.id}>
                 <td className='hidden md:block py-6 px-1'>{item.id}</td>
                 <td className='py-6 px-1'>{item.createdAt.toString().slice(0, 10)}</td>
-                <td className='py-6 px-1'>{Number(item.price).toFixed(2)}</td>
+                <td className='py-6 px-1'>{item.price}</td>
                 <td className='hidden md:block py-6 px-1'>{item.products[0].title}</td>
                 {
                   session?.user.isAdmin ? (

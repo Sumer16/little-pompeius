@@ -97,7 +97,7 @@ const CheckoutForm = () => {
         }}
       />
 
-      <AddressForm />
+      {/* <AddressForm /> */}
 
       <button disabled={isLoading || !stripe || !elements} id='submit' className='bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-2 rounded-md w-28'>
         <span id='button-text'>

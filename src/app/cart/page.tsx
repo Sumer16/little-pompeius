@@ -25,7 +25,7 @@ const CartPage = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            price: totalPrice.toFixed(2),
+            price: totalPrice,
             products,
             status: 'Not Paid!',
             userEmail: session.user.email,
@@ -56,7 +56,7 @@ const CartPage = () => {
                 <h1 className='uppercase text-xl font-bold text-ellipsis'>{item.title} x{item.quantity}</h1>
                 <span className='font-medium'>{item.optionTitle}</span>
               </div>
-              <h2 className='font-bold'>${item.price.toFixed(2)}</h2>
+              <h2 className='font-bold'>${item.price}</h2>
               <span
                 className='cursor-pointer font-semibold'
                 onClick={() => removeFromCart(item)}
@@ -71,7 +71,7 @@ const CartPage = () => {
       <div className='h-1/3 p-4 bg-rose-100 flex flex-col gap-2 justify-center lg:h-full lg:w-1/3 2xl:w-1/2 lg:px-16 xl:px-28 2xl:text-xl 2xl:gap-6'>
         <div className='flex justify-between'>
           <span className=''>Subtotal ({totalItems} items)</span>
-          <span className='font-medium'>${totalPrice.toFixed(2)}</span>
+          <span className='font-medium'>${totalPrice}</span>
         </div>
         <div className='flex justify-between'>
           <span className=''>Service Cost</span>
@@ -84,7 +84,7 @@ const CartPage = () => {
         <hr className='my-2 border-slate-400' />
         <div className='flex justify-between'>
           <span className=''>TOTAL (INCL. VAT)</span>
-          <span className='font-bold'>${totalPrice.toFixed(2)}</span>
+          <span className='font-bold'>${totalPrice}</span>
         </div>
         <button className='bg-red-500 text-white p-3 rounded-md w-1/2 self-end hover:bg-red-600' onClick={handleCheckout}>
           CHECKOUT
