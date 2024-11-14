@@ -9,13 +9,12 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 
-// import AddressForm from './AddressForm';
+import AddressForm from './AddressForm';
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [ email, setEmail ] = useState<string>('');
   const [ message, setMessage ] = useState<string | null>(null);
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
@@ -98,11 +97,11 @@ const CheckoutForm = () => {
         }}
       />
 
-      {/* <AddressForm /> */}
+      <AddressForm />
 
       <button disabled={isLoading || !stripe || !elements} id='submit' className='bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-2 rounded-md w-28'>
         <span id='button-text'>
-          {isLoading ? <div className='spinner' id='spinner'></div> : 'Pay now'}
+          {isLoading ? <div className='spinner text-white' id='spinner' /> : 'Pay now'}
         </span>
       </button>
 
