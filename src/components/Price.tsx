@@ -8,7 +8,7 @@ import { useCartStore } from '@/utils/store';
 import { ProductType } from '@/types/types';
 
 const Price = ({ product }: { product: ProductType}) => {
-  const [ total, setTotal ] = useState<number>(Number(product.price));
+  const [ total, setTotal ] = useState<number>(product.price);
   const [ quantity, setQuantity ] = useState<number>(1);
   const [ selected, setSelected ] = useState<number>(0);
 
@@ -43,7 +43,7 @@ const Price = ({ product }: { product: ProductType}) => {
 
   return (
     <div key={product.id} className='flex flex-col gap-4'>
-      <h2 className='text-2xl font-bold'>${total.toFixed(2)}</h2>
+      <h2 className='text-2xl font-bold'>${Number(total).toFixed(2)}</h2>
       {/* OPTIONS CONTAINER */}
       <div className='flex gap-4'>
         {
